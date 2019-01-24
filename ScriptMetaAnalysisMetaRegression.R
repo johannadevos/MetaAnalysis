@@ -49,9 +49,11 @@ anova(mod0, mod1a)
 anova(mod1a, mod1b)
 
 ## Draw profile likelihood plots for Model 1b (see Appendix 4)
+tiff("figures/Chapter 2 - Figure A.tiff", units="in", width=4, height=6, res=300)
 par(mfrow=c(2,1))
 profile(mod1b, sigma2=1)
 profile(mod1b, sigma2=2)
+dev.off()
 
 ## Calculate intra-class correlation (ICC) for Model 1b (the best-fitting Model 1)
 round(mod1b$sigma2[1] / sum(mod1b$sigma2), 3)
@@ -111,9 +113,11 @@ es_cook2$age <- factor(es_cook2$age, levels = c("elementary school / kindergarte
 es_cook2$treatment <- factor(es_cook2$treatment, levels = c("audio", "audiovisual", "TBLT (-int)", "TBLT (+int)"))
 
 ## Draw profile likelihood plots for Model 2 (see Appendix 4)
+tiff("figures/Chapter 2 - Figure B.tiff", units="in", width=4, height=6, res=300)
 par(mfrow=c(2,1))
 profile(mod2_cook, sigma2=1)
 profile(mod2_cook, sigma2=2)
+dev.off()
 
 ## Calculate intra-class correlation (ICC) for Model 2
 round(mod2_cook$sigma2[1] / sum(mod2_cook$sigma2), 3)
